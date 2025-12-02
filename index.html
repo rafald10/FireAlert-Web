@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FireAlert - Sistema de Detección</title>
+
+    <meta name="description" content="FireAlert: App de detección de humo conectada a Arduino. Alertas en tiempo real en tu Android.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <div id="theme-toggle" class="theme-toggle" title="Cambiar tema">
+            <i class="fa-solid fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+        </div>
+
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-fire-extinguisher logo-icon"></i>
+                FireAlert
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h2>SEGURIDAD INTELIGENTE</h2>
+                <p class="subtitle">Protege lo que más importa. FireAlert conecta tu sistema Arduino con tu móvil para enviarte notificaciones críticas de humo al instante.</p>
+
+                <div id="hero-actions">
+                    <a href="#" class="cta-button download-button">
+                        <i class="fa-brands fa-android"></i>
+                        <span>Descargar APK</span>
+                    </a>
+
+                    <div class="secondary-actions">
+                        <a href="#" class="cta-button secondary-button">
+                            <i class="fa-solid fa-code"></i>
+                            <span>Sketch Arduino</span>
+                        </a>
+
+                        <a href="#" class="cta-button github-button" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="presentation-counter">
+                    <p class="counter-label">Lanzamiento oficial v1.0 🚀</p>
+                    
+                    <div id="countdown">
+                        <div class="time-block small">
+                            <span id="days">00</span>
+                            <span class="label">Días</span>
+                        </div>
+                        <div class="time-block small">
+                            <span id="hours">00</span>
+                            <span class="label">Horas</span>
+                        </div>
+                        <div class="time-block small">
+                            <span id="minutes">00</span>
+                            <span class="label">Min</span>
+                        </div>
+                        <div class="time-block small">
+                            <span id="seconds">00</span>
+                            <span class="label">Seg</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-split">
+                <div class="features">
+                    <h3>¿Cómo funciona?</h3>
+                    <ul>
+                        <li>
+                            <span class="icon">
+                                <i class="fa-solid fa-bell"></i>
+                            </span>
+                            <div>
+                                <strong>Alertas Push:</strong> Recibe avisos inmediatos en tu barra de notificaciones, incluso con la app cerrada.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">
+                                <i class="fa-solid fa-fire-burner"></i>
+                            </span>
+                            <div>
+                                <strong>Sensor MQ-2:</strong> Alta sensibilidad para detectar GLP, butano, propano, metano, alcohol, hidrógeno y humo.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">
+                                <i class="fa-solid fa-history"></i>
+                            </span>
+                            <div>
+                                <strong>Historial de Eventos:</strong> Guarda un registro detallado de cada vez que el sensor se activó.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="phone-preview">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-content-mockup">
+                                
+                                <div class="mock-header">
+                                    <h4>FireAlert</h4>
+                                    <i class="fa-solid fa-sliders" style="color: white; opacity: 0.9;"></i>
+                                </div>
+                                
+                                <div class="mock-body">
+                                    
+                                    <div class="status-container">
+                                        <div class="status-ring pulse-animation">
+                                            <i class="fa-solid fa-shield-check status-icon"></i>
+                                        </div>
+                                        <h2 class="status-text">TODO SEGURO</h2>
+                                        <p class="status-sub">Monitorizando zona...</p>
+                                    </div>
+
+                                    <div class="log-list">
+                                        <p class="list-title">Últimos Eventos</p>
+                                        
+                                        <div class="log-item safe">
+                                            <div class="log-icon"><i class="fa-solid fa-check"></i></div>
+                                            <div class="log-info">
+                                                <span class="log-msg">Sistema Iniciado</span>
+                                                <span class="log-time">Hace 5 min</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="log-item alert">
+                                            <div class="log-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                                            <div class="log-info">
+                                                <span class="log-msg">¡ALERTA DE HUMO!</span>
+                                                <span class="log-time">Ayer, 18:42</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="log-item safe">
+                                            <div class="log-icon"><i class="fa-solid fa-check"></i></div>
+                                            <div class="log-info">
+                                                <span class="log-msg">Niveles normales</span>
+                                                <span class="log-time">Ayer, 19:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                                <div class="mock-fab">
+                                    <i class="fa-solid fa-wifi"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 FireAlert. Proyecto de Desarrollo de Interfaces.</p>
+            <p class="footer-devs">Creado con Android Studio, Java y Arduino.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
